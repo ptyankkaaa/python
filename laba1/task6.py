@@ -20,5 +20,5 @@ while i==0:
         i+=1
         break
 
-print(pow((a*b),(1/2)))
+print(round(pow((a*b),(1/2)),3))
 
