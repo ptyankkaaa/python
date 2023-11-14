@@ -1,5 +1,6 @@
 import random
-
+player_score = 0
+bot_score = 0
 
 class switch(object):
     def __init__(self, value):
@@ -65,31 +66,31 @@ def game2():
 
     if (y == 1 and z == 1):
         print("\nRock and rock\nDraw!\n")
-     
+        return 0
     if (y == 2 and z == 2):
         print("\nPaper and paper\nDraw!\n")
-      
+        return 0
     if (y == 3 and z == 3):
         print("\nScissors and scissors\nDraw!\n")
-        
+        return 0
     if (y == 1 and z == 2):
         print("\nRock and paper\nYou lose!\n")
-        
+        return 1
     if (y == 1 and z == 3):
         print("\nRock and scissors\nYou won!\n")
-       
+        return 2
     if (y == 2 and z == 1):
         print("\nPaper and rock\nYou won!\n")
-        
+        return 2
     if (y == 2 and z == 3):
         print("\nPaper and scissors\nYou lose!\n")
-       
+        return 1
     if (y == 3 and z == 1):
         print("\nScissors and rock\nYou lose!\n")
-    
+        return 1
     if (y == 3 and z == 2):
         print("\nScissors and paper\nYou won!\n")
-    
+        return 3
     if (y != 1 and y != 2 and y != 3):
         print("\nError, try again\n")
         game2()
@@ -116,19 +117,32 @@ def after_game2():
         if case(1):
             print("\nLet's continue!\n")
             game_settings()
-            game2()
         if case(2):
             main_menu()
         if case(0):
             print("\nThanks for the game! See you!\n")
             sys.exit()
 
+
 def game_settings():
+
+    global player_score
+    global bot_score
+
     print("\nHow many rounds do you want to play?\n")
     s = int(input())
     while s!=0:
-        game2()
+        a = game2()
+        if a == 2:
+            player_score+=1
+        if a == 1:
+            bot_score+=1
+
         s-=1
+    a = 0
+    print(player_score,":",bot_score)
+    player_score = 0
+    bot_score = 0
 
 
 def rules():
