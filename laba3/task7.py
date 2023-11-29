@@ -1,47 +1,41 @@
-book = ["Maus","Fun Home","Watchmen","Barbaris", "Maus"]
+book = ["Maus","Fun Home","Watchmen","Barbaris"]
 
-author = ["Lapina Podatko", "Poline Dmitro", "Polianna Dmitro", "Lapina Podatko", "Vladik Tud"]
+author = ["Lapina Podatko", "Poline Dmitro", "Polianna Dmitro", "Lapina Podatko"]
 
 # book_author = dict(zip(book, author))
 
 # title = input()
-# print(book_author[title])
+# print(list(book_author[title]))
 
-# hash = {None}
-# j=0
-# for i in range(len(book)):
-#     while j==0:
-#         if __hash(i) == None:
-#             hash[book[i]] = author[i]
-#             j=1
-#         else:
-#             hash[book[i]] = author[i]
+hash = {}
+for i in range (len(book)):
+    hash[book[i]] = author[i]
 
-# print(hash)
+print(hash[input()])
 
-class Node(Generic[K, V]):
-    key: K
-    value: V 
-    next_ptr: Optional['Node[K, V]'] = None
+# class Node(Generic[K, V]):
+#     key: K
+#     value: V 
+#     next_ptr: Optional['Node[K, V]'] = None
 
-class HashTable(Generic[K,V]):
+# class HashTable(Generic[K,V]):
 
-    def __init__(self, capacity: int) -> None:
-        self._size: int = 0
-        self._capacity: int = capacity
-        self._table: ctypes.Array[Optional[Node[K, V]]] = (capacity * ctypes.py_object)()
+#     def __init__(self, capacity: int) -> None:
+#         self._size: int = 0
+#         self._capacity: int = capacity
+#         self._table: ctypes.Array[Optional[Node[K, V]]] = (capacity * ctypes.py_object)()
 
-        for i in range(0, capacity):
-            self._table[i] = None
+#         for i in range(0, capacity):
+#             self._table[i] = None
 
-    def _hash(self, key: K) -> int:
-        h = hash(key)
-        return (self._capacity - 1) & (h ^ (h >> 16))
+#     def _hash(self, key: K) -> int:
+#         h = hash(key)
+#         return (self._capacity - 1) & (h ^ (h >> 16))
     
-    def _resolve_put_collision(self, key: K, value: V, index: int) -> None:
-        self._table[index] = Node(
-            key=key, value=value, next_ptr=self._table[index])
-        print(f"Collision: (index: {index}, key: {key}, value: {value})")
+#     def _resolve_put_collision(self, key: K, value: V, index: int) -> None:
+#         self._table[index] = Node(
+#             key=key, value=value, next_ptr=self._table[index])
+#         print(f"Collision: (index: {index}, key: {key}, value: {value})")
 
 
 # incert(12,200) вставляет в хэш 200 с ключём 12

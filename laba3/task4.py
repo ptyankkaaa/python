@@ -16,7 +16,8 @@ def hash4_letter_index(letter):
 
 
 def print_h4():
-    print("Задание 4")
-    for i in set:
-        print(f'Индекс для {i} посде хэширования {hash4(i, len(set))}')
+    for i in value:
+        print(f'Индекс для {i} после хэширования {hash4(i, len(value))}')
     print("\n")
+
+print_h4()
