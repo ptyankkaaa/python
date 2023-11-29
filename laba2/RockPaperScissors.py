@@ -1,4 +1,5 @@
 import random
+import sys
 player_score = 0
 bot_score = 0
 
@@ -34,24 +35,33 @@ def game1():
 
     if (y == 1 and z == 1):
         print("\nRock and rock\nDraw!\n")
+        after_game1()
     if (y == 2 and z == 2):
         print("\nPaper and paper\nDraw!\n")
+        after_game1()
     if (y == 3 and z == 3):
         print("\nScissors and scissors\nDraw!\n")
+        after_game1()
     if (y == 1 and z == 2):
         print("\nRock and paper\nYou lose!\n")
+        after_game1()
     if (y == 1 and z == 3):
         print("\nRock and scissors\nYou won!\n")
+        after_game1()
     if (y == 2 and z == 1):
         print("\nPaper and rock\nYou won!\n")
+        after_game1()
     if (y == 2 and z == 3):
         print("\nPaper and scissors\nYou lose!\n")
+        after_game1()
     if (y == 3 and z == 1):
         print("\nScissors and rock\nYou lose!\n")
+        after_game1()
     if (y == 3 and z == 2):
         print("\nScissors and paper\nYou won!\n")
+        after_game1()
     if (y != 1 and y != 2 and y != 3):
-        print("\nError, try again\n")
+        print("\nYou choose a non-existent command, try again\n")
         game1() 
     
 def game2():
@@ -92,36 +102,41 @@ def game2():
         print("\nScissors and paper\nYou won!\n")
         return 3
     if (y != 1 and y != 2 and y != 3):
-        print("\nError, try again\n")
+        print("\nYou choose a non-existent command, try again\n")
         game2()
 
 def after_game1():
-    import sys
-    print("\nIf you don't want to play some more - enter 0\nif you want to play some more - enter 1\nIf you want to go to main menu - enter 2\n")
+    print("\nIf you don't want to play some more - enter 1\nif you want to play some more - enter 2\nIf you want to go to main menu - enter 3\n")
     answer = int(input())
     for case in switch(answer):
-        if case(1):
+        if case(2):
             print("\nLet's continue!\n")
             game1()
-        if case(2):
+        if case(3):
             main_menu()
-        if case(0):
+        if case(1):
             print("\nThanks for the game! See you!")
             sys.exit()
+        else:
+            print("You choose a non-existent command, try again")
+            after_game1()
+
 
 def after_game2():
-    import sys
-    print("\nIf you don't want to play some more - enter 0\nif you want to play some more - enter 1\nIf you want to go to main menu - enter 2\n")
+    print("\nIf you don't want to play some more - enter 1\nif you want to play some more - enter 2\nIf you want to go to main menu - enter 3\n")
     answer = int(input())
     for case in switch(answer):
-        if case(1):
+        if case(2):
             print("\nLet's continue!\n")
             game_settings()
-        if case(2):
+        if case(3):
             main_menu()
-        if case(0):
+        if case(1):
             print("\nThanks for the game! See you!\n")
             sys.exit()
+        else:
+            print("You choose a non-existent command, try again")
+            after_game2()
 
 
 def game_settings():
@@ -131,18 +146,23 @@ def game_settings():
 
     print("\nHow many rounds do you want to play?\n")
     s = int(input())
-    while s!=0:
-        a = game2()
-        if a == 2:
-            player_score+=1
-        if a == 1:
-            bot_score+=1
+    if s > 0:
+        while s!=0:
+            a = game2()
+            if a == 2:
+                player_score+=1
+            if a == 1:
+                bot_score+=1
 
-        s-=1
+            s-=1
+    else:
+        print("Error\nPlease enter the number of rounds greater than zero\n")
+        game_settings()
     a = 0
     print(player_score,":",bot_score)
     player_score = 0
     bot_score = 0
+    after_game2()
 
 
 def rules():
@@ -153,16 +173,21 @@ def grittings():
     print("\nWelcome in Rock Paper Scissors!\n")
 
 def main_menu():
-    print("\nIf you want a one time game - enter 1\nIf you want to set the number of rounds - enter 2\nIf you want to know the rules of the game - enter 3\n")
+    print("\nIf you want a one time game - enter 1\nIf you want to set the number of rounds - enter 2\nIf you want to know the rules of the game - enter 3\nFor exit - enter 4\n")
     answer = int(input())
     if answer == 1:
         game1()
-        after_game1()
     if answer == 2:
         game_settings()
-        after_game2()
     if answer == 3:
         rules()
+    if answer == 4:
+        print("See you!")
+        sys.exit()
+    else: 
+        print("You choose a non-existent command, try again")
+        main_menu()
+
 
 
 
