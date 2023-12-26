@@ -1,24 +1,22 @@
 import math
 
-i=0
-while i==0:
-    a = int(input("Enter a = "))
-    if (a < 1):
-        input("Error, a>=1 try again [Enter]")
-        i=0
-    else:
-        i+=1
-        break
+def examination(value, name):
+    if (value >= 1 and value <= 100):
+        return True
+    else: 
+        print("Enter a value in the range from 1 to 100")
+        str =name + " = "
+        a = int(input(str))
+        examination(a, name)
+        
+stra = 'a'
+strb = 'b'
 
-i=0
-while i==0:
-    b = int(input("Enter b = "))
-    if (b > 100):
-        input("Error, b<=100 try again [Enter]")
-        i=0
-    else:
-        i+=1
-        break
+a = int(input("a = "))
+examination(a, stra)
+b = int(input("b = "))
+examination(b, strb)
+
 
 print(round(pow((a*b),(1/2)),3))
 

@@ -1,29 +1,24 @@
 import math
 
-i=0
+def examination(value, name):
+    if (value >= 1 and value <= 100):
+        return True
+    else: 
+        print("Enter a value in the range from 1 to 100")
+        str =name + " = "
+        a = int(input(str))
+        examination(a, name)
+        
+stra = 'A'
+strb = 'B'
+strc = 'C'
 
-while i==0:
-    A = int(input("Enter A >= -100. A = "))
-    if A < (-100):
-        input("Error, try again [Enter]")
-        i==0
-    else:
-        i+=1
-        break
-
-
-B = int(input("Enter B = "))
-
-j=0
-
-while j==0:
-    C = int(input("Enter C <= 100. C = "))
-    if C > 100:
-        input("Error? try again [Enter]")
-        j==0
-    else:
-        j+=1
-        break
+a = int(input("A = "))
+examination(a, stra)
+b = int(input("B = "))
+examination(b, strb)
+c = int(input("C = "))
+examination(c, strc)
 
 A, B, C = C, A, B
 

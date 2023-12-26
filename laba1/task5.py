@@ -1,39 +1,25 @@
 import math
 
-i=0
-while i==0:
-    v1 = int(input("V1 = "))
-    if (v1>=1 and v1<=100):
-        i+=1
-    else:
+def examination(value, name):
+    if (value >= 1 and value <= 100):
+        return True
+    else: 
         print("Enter a value in the range from 1 to 100")
-        i==0
-
-i=0
-while i==0:
-    v2 = int(input("V2 = "))
-    if (v2>=1 and v2<=100):
-        i+=1
-    else:
-        print("Enter a value in the range from 1 to 100")
-        i==0
-
-i=0
-while i==0:
-    s = int(input("S = "))
-    if (s>=1 and s<=100):
-        i+=1
-    else:
-        print("Enter a value in the range from 1 to 100")
-        i==0
-
-i=0
-while i==0:
-    t = int(input("T = "))
-    if (t>=1 and t<=100):
-        i+=1
-    else:
-        print("Enter a value in the range from 1 to 100")
-        i==0
+        str =name + " = "
+        a = int(input(str))
+        examination(a, name)
+        
+strv1 = 'v1'
+strv2 = 'v2'
+strs = 's'
+strt = 't'
+v1 = int(input("V1 = "))
+examination(v1, strv1)
+v2 = int(input("V2 = "))
+examination(v2, strv2)
+s = int(input("S = "))
+examination(s, strs)
+t = int(input("T = "))
+examination(t, strt)
 
 print("S =", abs(s-t*(v1+v2)))
