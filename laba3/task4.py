@@ -1,25 +1,23 @@
-book = ["a", "b", "e", "Dmitriy", "Slava", "Robert", "Alblack", "Alex", "Andrew", "bag"]
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101]
-prime_dict = dict(zip(alphabet, primes))  # Создаем словарь, сопоставляющий буквы с простыми числами
+value = ["aame1", "bame2", "came333", "dame4444", "eame55555", "fame666666", "game7777777", "hame888888888", "iame999999999", "game10000000000", "kame111111111111"]
+
+def hash4(inp_value, len):
+    sum_index = 0
+    for i in inp_value:
+        sum_index += hash4_letter_index(i)
+    return sum_index % len
 
 
-def letterIndex(letter):
-    letter = letter.lower() #если есть биги, то оно сё делает мини
-    return prime_dict[letter] #индекс буквы в виде простого числа
-    
-
-def hashFunction(word, lenght):
-    sumIndex = 0
-    for letter in word:
-        sumIndex += letterIndex(letter)
-    return sumIndex % lenght
+def hash4_letter_index(letter):
+    letter = letter.lower()
+    if ord(letter) - ord('a') != 0:
+        return 2 * (ord(letter) - ord('a') + 1) - 1
+    else:
+        return 2
 
 
-def main():
-    for word in book:
-        print(f'Индекс для {word} после хэширования {hashFunction(word, len(book))}')
+def print_h4():
+    for i in value:
+        print(f'Индекс для {i} после хэширования {hash4(i, len(value))}')
+    print("\n")
 
-
-if __name__ == "__main__":
-    main()
+print_h4()
