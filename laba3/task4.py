@@ -5,23 +5,20 @@ prime_dict = dict(zip(alphabet, primes))  # Создаем словарь, со�
 
 
 def letterIndex(letter):
-    letter = letter.lower()
-    a = 0
-    for i in letter:
-        a += prime_dict[letter]
-    return a
+    letter = letter.lower() #если есть биги, то оно сё делает мини
+    return prime_dict[letter] #индекс буквы в виде простого числа
+    
 
-
-def hashFunction(inputValue, lenght):
+def hashFunction(word, lenght):
     sumIndex = 0
-    for i in inputValue:
-        sumIndex += letterIndex(i)
+    for letter in word:
+        sumIndex += letterIndex(letter)
     return sumIndex % lenght
 
 
 def main():
-    for i in book:
-        print(f'Индекс для {i} после хэширования {hashFunction(i, len(book))}')
+    for word in book:
+        print(f'Индекс для {word} после хэширования {hashFunction(word, len(book))}')
 
 
 if __name__ == "__main__":
