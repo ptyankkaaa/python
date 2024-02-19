@@ -27,7 +27,7 @@ def prime_hash_index(s, size):
 
 def print_h4():
     for i in value:
-        print(f'Индекс для {i} после хэширования {prime_hash_index(value, len(value))}')
+        print(f'Индекс для {i} после хэширования {prime_hash_index(i, len(value))}')
     print("\n")
 
 print_h4()
