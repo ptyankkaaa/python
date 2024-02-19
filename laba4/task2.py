@@ -7,6 +7,8 @@ graph = {'cab': ["car", "cat"],
     'mat': ["bat"],
     'bar': ["bat"]}
 
+# прога та же что и в первом задании
+
 def bfs(start, goal, graph):
     visited = set()
     queue = deque([(start, [start])])
@@ -25,6 +27,6 @@ goal = 'bat'
 path = bfs(start, goal, graph)
 
 if path:
-    print(f"Path from {start} to {goal}: {' >> '.join(path)}")
+    print(f"Path from {start} to {goal}: {' >> '.join(path)}")  
 else:
     print(f"No path found from {start} to {goal}")

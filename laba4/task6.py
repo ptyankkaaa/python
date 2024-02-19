@@ -3,11 +3,11 @@ bork = []
 
 def cols_is_even(m_str, m_col):
     global bork
-    bork = [[0]*m_col for i in range(m_str)]
-    count = 0
-    for col in range(m_col-1, -1, -1):
-        if col % 2 == 0:
-            for row in range(m_str-1, -1, -1):
+    bork = [[0]*m_col for i in range(m_str)]  #создается двумерный список с размером `m_str` строк на `m_col` столбцов, заполненный нулями
+    count = 0 #для отслеживания номера текущего элемента в матрице
+    for col in range(m_col-1, -1, -1): #бежит по столбцам от последнего к первому
+        if col % 2 == 0: #проверяет столбец на чётность
+            for row in range(m_str-1, -1, -1): #бежит по строкам от последнего к первому
                 count += 1
                 bork[row][col] = count
         else:
@@ -33,7 +33,7 @@ def cols_is_uneven(m_str, m_col):
     return bork
 
 
-def matrix_build(m_str, m_col):
+def matrix_build(m_str, m_col): 
     global bork
     if m_col % 2 == 0:
         cols_is_uneven(m_str, m_col)
