@@ -80,21 +80,21 @@ def main():
 
     # Построение графиков погрешности от шага интегрирования
     h = (2 * b - a)/n
-    x_values = np.linspace(0, 2 * np.pi, 1000)
-    y_values = np.sin(x_values)
-    y_values_function = 1 - np.cos(x_values) # Значения от интеграла sin(x)
-    t_values = np.linspace(a, 2 * b, 1000)
-    difference_values = []
-    difference_value = 0
-    for t in t_values:
-        difference_value += f(t) * h
-        difference_values.append(difference_value)
+    x = np.linspace(0, 2 * np.pi, 1000)
+    y = np.sin(x)
+    y_function = 1 - np.cos(x) # Значения от интеграла sin(x)
+    t = np.linspace(a, 2 * b, 1000)
+    diff = []
+    diff_value = 0
+    for t in t:
+        diff_value += f(t) * h
+        diff.append(diff_value)
     #Вычисляем накопленную площадь для каждого t
-    #integral_values_sum = np.cumsum(f(t_values) * h)
-    errors = difference_values - y_values_function
+    #integral_sum = np.cumsum(f(t) * h)
+    errors = diff - y_function
 
     plt.subplot(121)
-    plt.plot(x_values, y_values, label='sin(x)', color='orange')
+    plt.plot(x, y, label='sin(x)', color='orange')
     plt.xlabel('x')
     plt.ylabel('Значение')
     plt.legend()
@@ -102,7 +102,7 @@ def main():
     plt.title('График sin(x)')
 
     plt.subplot(122)
-    plt.plot(t_values, errors, label='Накопленная площадь')
+    plt.plot(t, errors, label='Накопленная площадь')
     plt.xlabel('x')
     plt.ylabel('Значение')
     plt.legend()

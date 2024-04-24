@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tabulate import tabulate
 
-x_0 = 2 * pi # точка,в которой вычисляется приближенное значение производной
+X0 = 2 * pi # точка,в которой вычисляется приближенное значение производной
 n = 100
 h = 1e-6 # точность
 h_values = np.logspace(-14, -1, n)  # генерация логарифмической последовательности шагов от 1e-14 до 1e-1
@@ -41,7 +41,7 @@ def second_derivative(x):
 
 
 # Вычисление точной производной в pi/2
-exact_derivative = derivative(x_0)
+exact_derivative = derivative(X0)
 
 # Создание массивов для хранения значений погрешностей
 errors_a = []
@@ -50,9 +50,9 @@ errors_c = []
 
 # Вычисление погрешностей для каждого значения h
 for h in h_values:
-    approx_derivative_a = derivative_a(x_0, h)
-    approx_derivative_b = derivative_b(x_0, h)
-    approx_derivative_c = derivative_c(x_0, h)
+    approx_derivative_a = derivative_a(X0, h)
+    approx_derivative_b = derivative_b(X0, h)
+    approx_derivative_c = derivative_c(X0, h)
 
     error_a = abs(approx_derivative_a - exact_derivative)
     error_b = abs(approx_derivative_b - exact_derivative)
@@ -70,12 +70,12 @@ headers = ["Шаг (h)", "Погрешность (Левая разность)",
 # Вывод таблицы с использованием библиотеки tabulate
 print(tabulate(table_data, headers=headers, floatfmt=".10f", tablefmt="pretty"))
 
-print(f"Левая разность для h = {h}: {derivative_a(x_0, h)}")
-print(f"Правая разность для h = {h}: {derivative_b(x_0, h)}")
-print(f"Центральная разность для h = {h}: {derivative_c(x_0, h)}")
-print(f"Значение первой производной в точке x = {x_0}: {exact_derivative}")
-print(f"Значение второй производной в точке x = {x_0}: {second_derivative(x_0)}")
-print(f"Приближенное значение для h = {h}: {second_derivative_h(x_0, h)}")
+print(f"Левая разность для h = {h}: {derivative_a(X0, h)}")
+print(f"Правая разность для h = {h}: {derivative_b(X0, h)}")
+print(f"Центральная разность для h = {h}: {derivative_c(X0, h)}")
+print(f"Значение первой производной в точке x = {X0}: {exact_derivative}")
+print(f"Значение второй производной в точке x = {X0}: {second_derivative(X0)}")
+print(f"Приближенное значение для h = {h}: {second_derivative_h(X0, h)}")
 
 # Построение графиков погрешностей
 # plt.figure(figsize=(10, 6))
